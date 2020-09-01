@@ -6,6 +6,8 @@ Provides guidelines and FAQ for the development of the Ardalo Digital Platform.
   * [Monitoring](#monitoring)
     * [\[Must\] Every Service exposes Health Check Endpoints](#must-every-service-exposes-health-check-endpoints)
     * [\[Must\] Every Service exposes a Prometheus Metrics Endpoint](#must-every-service-exposes-a-prometheus-metrics-endpoint)
+  * [Documentation](#documentation)
+    * [\[Must\] Every Service provides an Open API documentation](#must-every-service-provides-an-open-api-documentation)
 * [FAQ](#faq)
   * [Update Project Dependencies](#update-project-dependencies)
     * [Update Gradle Wrapper](#update-gradle-wrapper)
@@ -53,6 +55,17 @@ Provides guidelines and FAQ for the development of the Ardalo Digital Platform.
 
 **Background:**
 * Prometheus is the default monitoring solution of the Ardalo Digital Platform. Thus every service needs to play well with it.
+
+### Documentation
+
+#### [Must] Every Service provides an Open API documentation
+
+**Details:**
+* Every Service provides an Open API documentation accessible via Browser
+
+**Background:**
+* With every service providing an Open API documentation it is easy to explore existing APIs using a familiar interface.
+  Familiar because this is set as a standard for every service and thus exploring different services works quite equal.
 
 ## FAQ
 
