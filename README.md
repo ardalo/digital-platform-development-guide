@@ -1,10 +1,11 @@
 # Ardalo Digital Platform Development Guide
 Provides guidelines and FAQ for the development of the Ardalo Digital Platform.
 
-## Table of contents
+## Table of Contents
 * [Service Implementation](#service-implementation)
   * [Monitoring](#monitoring)
     * [\[Must\] Every Service exposes Health Check Endpoints](#must-every-service-exposes-health-check-endpoints)
+    * [\[Must\] Every Service exposes a Prometheus Metrics Endpoint](#must-every-service-exposes-a-prometheus-metrics-endpoint)
 * [FAQ](#faq)
   * [Update Project Dependencies](#update-project-dependencies)
     * [Update Gradle Wrapper](#update-gradle-wrapper)
@@ -44,6 +45,14 @@ Provides guidelines and FAQ for the development of the Ardalo Digital Platform.
   * If a service is not ready, i.e. does not respond with HTTP Status Code `200` to a `/ready` request,
     the service will be removed from load balancing and only added again once the `/ready` endpoint
     return HTTP Status Code `200`
+
+#### [Must] Every Service exposes a Prometheus Metrics Endpoint
+
+**Details:**
+* Every Service exposes an Endpoint providing Prometheus metrics
+
+**Background:**
+* Prometheus is the default monitoring solution of the Ardalo Digital Platform. Thus every service needs to play well with it.
 
 ## FAQ
 
