@@ -2,17 +2,18 @@
 Provides guidelines and FAQ for the development of the Ardalo Digital Platform.
 
 ## Table of Contents
-* [Service Implementation](#service-implementation)
+* [Service Implementation Guide](#service-implementation-guide)
   * [Monitoring](#monitoring)
     * [\[Must\] Every Service exposes Health Check Endpoints](#must-every-service-exposes-health-check-endpoints)
     * [\[Must\] Every Service exposes a Prometheus Metrics Endpoint](#must-every-service-exposes-a-prometheus-metrics-endpoint)
   * [Documentation](#documentation)
     * [\[Must\] Every Service provides an Open API documentation](#must-every-service-provides-an-open-api-documentation)
+* [Service Implementation Checklist](#service-implementation-checklist)
 * [FAQ](#faq)
   * [Update Project Dependencies](#update-project-dependencies)
     * [Update Gradle Wrapper](#update-gradle-wrapper)
 
-## Service Implementation
+## Service Implementation Guide
 
 ### Monitoring
 
@@ -66,6 +67,15 @@ Provides guidelines and FAQ for the development of the Ardalo Digital Platform.
 **Background:**
 * With every service providing an Open API documentation it is easy to explore existing APIs using a familiar interface.
   Familiar because this is set as a standard for every service and thus exploring different services works quite equal.
+
+## Service Implementation Checklist
+This checklist shall help to evaluate whether a service conforms to the [Service Implementation Guide](#service-implementation-guide)
+and additionally show some Best Practices which should be adopted by services of the Ardalo Digital Platform.
+
+- [ ] Service exposes a `/alive` health check endpoint ([ℹ](#must-every-service-exposes-health-check-endpoints))
+- [ ] Service exposes a `/ready` health check endpoint ([ℹ](#must-every-service-exposes-health-check-endpoints))
+- [ ] Service exposes an endpoint providing Prometheus style metrics ([ℹ](#must-every-service-exposes-a-prometheus-metrics-endpoint))
+- [ ] Service provides an Open API documentation accessible via Browser ([ℹ](#must-every-service-provides-an-open-api-documentation))
 
 ## FAQ
 
