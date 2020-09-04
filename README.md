@@ -109,8 +109,7 @@ and additionally show some Best Practices which should be adopted by services of
 - [ ] Service provides an Open API documentation accessible via Browser ([ℹ](#must-every-service-provides-an-open-api-documentation))
 - [ ] Service provides a `Dockerfile` to build a Docker Image of itself ([ℹ](#must-every-service-needs-to-be-dockerized))
 - [ ] Service provides a `docker-compose.yml` ([ℹ](#must-every-service-needs-to-be-dockerized))
-- [ ] Service is added to [`docker-compose.yml`](https://github.com/ardalo/digital-platform-overview/blob/master/docker-compose.yml)
-  in [digital-platform-overview](https://github.com/ardalo/digital-platform-overview)
+- [ ] Service is added to [`docker-compose.yml` of `digital-platform-overview`](https://github.com/ardalo/digital-platform-overview/blob/master/docker-compose.yml)
   ([ℹ](#must-every-service-needs-to-be-added-to-docker-composeyml-of-digital-platform-overview))
 - [ ] (Optional) Service has a `.dockerignore` file do exclude unnecessary files from Docker Images ([ℹ](#must-every-service-needs-to-be-dockerized))
 
