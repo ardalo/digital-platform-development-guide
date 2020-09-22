@@ -25,12 +25,12 @@ Provides guidelines and FAQ for the development of the Ardalo Digital Platform.
 **Details:**
 * Every Service exposes an alive check endpoint
   * This endpoint indicates whether the service itself is running
-  * Endpoint: `/alive`
+  * Endpoint example: `/alive`
   * Returns HTTP Status Code `200` if the service is alive
   * If the service does not respond with HTTP Status Code `200`, it is considered dead and will be restarted
 * Every Service exposes a readiness check endpoint
   * This endpoint indicates whether the service is able to process requests
-  * Endpoint: `/ready`
+  * Endpoint example: `/ready`
   * Returns HTTP Status Code `200` if the service is ready
   * May return a JSON object providing some context about the checked dependencies and its statuses, e.g.
     ```json
@@ -46,10 +46,10 @@ Provides guidelines and FAQ for the development of the Ardalo Digital Platform.
 
 **Background:**
 * Health Check Endpoints are essential for an automated infrastructure:
-  * If a service is not alive, i.e. does not respond with HTTP Status Code `200` to a `/alive` request,
+  * If a service is not alive, i.e. does not respond with HTTP Status Code `200` to a `alive` request,
     the service can be detected as dead and restarted automatically.
-  * If a service is not ready, i.e. does not respond with HTTP Status Code `200` to a `/ready` request,
-    the service will be removed from load balancing and only added again once the `/ready` endpoint
+  * If a service is not ready, i.e. does not respond with HTTP Status Code `200` to a `ready` request,
+    the service will be removed from load balancing and only added again once the `ready` endpoint
     return HTTP Status Code `200`
 
 #### [Must] Every Service exposes a Prometheus Metrics Endpoint
