@@ -103,8 +103,8 @@ Provides guidelines and FAQ for the development of the Ardalo Digital Platform.
 This checklist shall help to evaluate whether a service conforms to the [Service Implementation Guide](#service-implementation-guide)
 and additionally show some Best Practices which should be adopted by services of the Ardalo Digital Platform.
 
-- [ ] Service exposes a `/alive` health check endpoint ([ℹ](#must-every-service-exposes-health-check-endpoints))
-- [ ] Service exposes a `/ready` health check endpoint ([ℹ](#must-every-service-exposes-health-check-endpoints))
+- [ ] Service exposes an alive health check endpoint ([ℹ](#must-every-service-exposes-health-check-endpoints))
+- [ ] Service exposes a readiness health check endpoint ([ℹ](#must-every-service-exposes-health-check-endpoints))
 - [ ] Service exposes an endpoint providing Prometheus style metrics ([ℹ](#must-every-service-exposes-a-prometheus-metrics-endpoint))
 - [ ] Service provides an Open API documentation accessible via Browser ([ℹ](#must-every-service-provides-an-open-api-documentation))
 - [ ] Service provides a `Dockerfile` to build a Docker Image of itself ([ℹ](#must-every-service-needs-to-be-dockerized))
