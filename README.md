@@ -104,7 +104,7 @@ Provides guidelines and FAQ for the development of the Ardalo Digital Platform.
 #### [Must] Service is added to docker-compose.yml of digital-platform-overview
 
 **Details:**
-* The service needs to be added to [`docker-compose.yml`](https://github.com/ardalo/digital-platform-overview/blob/master/docker-compose.yml)
+* Service needs to be added to [`docker-compose.yml`](https://github.com/ardalo/digital-platform-overview/blob/master/docker-compose.yml)
 
 **Background:**
 * The [digital-platform-overview](https://github.com/ardalo/digital-platform-overview) repository provides
