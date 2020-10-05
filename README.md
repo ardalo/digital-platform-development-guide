@@ -79,11 +79,14 @@ Provides guidelines and FAQ for the development of the Ardalo Digital Platform.
 **Details:**
 * Service may contain badges in its README file which provide insights of its current status
 * Common badges:
-  * Build Status, e.g. ![Build Status](https://img.shields.io/badge/build-passing-success)
+  * Build Status (from GitHub Actions), e.g. ![Build Status](https://github.com/ardalo/platform-gateway/workflows/Build/badge.svg)
+  * Code Coverage (from SonarCloud), e.g. ![Code Coverage](https://sonarcloud.io/api/project_badges/measure?project=ardalo_platform-gateway&metric=coverage)
+  * Lines of Code (from SonarCloud), e.g. ![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=ardalo_platform-gateway&metric=ncloc)
 
 **Background:**
 * The README file of a Service is the place to go when looking for information. Status badges provide
-  a brief overview of interesting service measures like the build status.
+  a brief overview of interesting service measures like build status, or the rough size of the service
+  based on the lines of code.
 
 ### Infrastructure
 
