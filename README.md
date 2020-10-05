@@ -124,7 +124,9 @@ and additionally show some Best Practices which should be adopted by services of
   - [ ] Service exposes an endpoint providing Prometheus style metrics ([ℹ](#must-service-exposes-a-prometheus-metrics-endpoint))
 - Documentation
   - [ ] Service provides an Open API documentation accessible via Browser ([ℹ](#must-service-provides-an-open-api-documentation))
-  - [ ] (Optional) Service contains a build status badge in its README ([ℹ](#could-service-contains-status-badges-in-readme))
+  - [ ] (Optional) Service contains a "Build Status"-Badge in its README ([ℹ](#could-service-contains-status-badges-in-readme))
+  - [ ] (Optional) Service contains a "Code Coverage"-Badge in its README ([ℹ](#could-service-contains-status-badges-in-readme))
+  - [ ] (Optional) Service contains a "Lines of Code"-Badge in its README ([ℹ](#could-service-contains-status-badges-in-readme))
 - Infrastructure
   - [ ] Service provides a `Dockerfile` to build a Docker Image of itself ([ℹ](#must-service-is-dockerized))
   - [ ] Service provides a `docker-compose.yml` ([ℹ](#must-service-is-dockerized))
