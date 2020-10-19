@@ -12,6 +12,8 @@ Provides guidelines and FAQ for the development of the Ardalo Digital Platform.
   * [Infrastructure](#infrastructure)
     * [\[Must\] Service is Dockerized](#must-service-is-dockerized)
     * [\[Must\] Service is added to docker-compose.yml of digital-platform-overview](#must-service-is-added-to-docker-composeyml-of-digital-platform-overview)
+  * [QA](#qa)
+    * [\[Could\] Service uses SonarCloud static code analysis](#could-service-uses-sonarcloud-static-code-analysis)
 * [Service Implementation Checklist](#service-implementation-checklist)
 * [FAQ](#faq)
   * [Update Project Dependencies](#update-project-dependencies)
@@ -114,6 +116,19 @@ Provides guidelines and FAQ for the development of the Ardalo Digital Platform.
   a `docker-compose.yml` file which starts the whole Ardalo Digital Platform in a Docker Environment. Thus
   every component of the Ardalo Digital Platform needs to be added manually to this `docker-compose.yml`.
 
+### QA
+
+#### [Could] Service uses SonarCloud static code analysis
+
+**Details:**
+* Static code analysis can be performed via [SonarCloud](https://sonarcloud.io/organizations/ardalo/projects)
+* Code coverage report can be uploaded to [SonarCloud](https://sonarcloud.io/organizations/ardalo/projects) to
+  also have code coverage visible
+
+**Background:**
+* Static code analysis helps to find issues in the source code, e.g. code smells, bugs or security hotspots.
+  Therefore it helps to improve the overall quality of the source code.
+
 ## Service Implementation Checklist
 This checklist shall help to evaluate whether a service conforms to the [Service Implementation Guide](#service-implementation-guide)
 and additionally show some Best Practices which should be adopted by services of the Ardalo Digital Platform.
@@ -133,6 +148,8 @@ and additionally show some Best Practices which should be adopted by services of
   - [ ] (Optional) Service has a `.dockerignore` file to exclude unnecessary files from Docker Images ([ℹ](#must-service-is-dockerized))
   - [ ] Service is added to [`docker-compose.yml` of `digital-platform-overview`](https://github.com/ardalo/digital-platform-overview/blob/master/docker-compose.yml)
     ([ℹ](#must-service-is-added-to-docker-composeyml-of-digital-platform-overview))
+- QA
+  - [ ] (Optional) Service uses SonarCloud static code analysis ([ℹ](#could-service-uses-sonarcloud-static-code-analysis))
 
 ## FAQ
 
