@@ -12,6 +12,8 @@ Provides guidelines and FAQ for the development of the Ardalo Digital Platform.
   * [Infrastructure](#infrastructure)
     * [\[Must\] Service is Dockerized](#must-service-is-dockerized)
     * [\[Must\] Service is added to docker-compose.yml of digital-platform-overview](#must-service-is-added-to-docker-composeyml-of-digital-platform-overview)
+  * [Tracing](#tracing)
+    * [\[Should\] HTTP Requests contain Correlation-ID](#should-http-requests-contain-correlation-id)
   * [QA](#qa)
     * [\[Could\] Service uses SonarCloud static code analysis](#could-service-uses-sonarcloud-static-code-analysis)
 * [Service Implementation Checklist](#service-implementation-checklist)
@@ -116,6 +118,33 @@ Provides guidelines and FAQ for the development of the Ardalo Digital Platform.
   a `docker-compose.yml` file which starts the whole Ardalo Digital Platform in a Docker Environment. Thus
   every component of the Ardalo Digital Platform needs to be added manually to this `docker-compose.yml`.
 
+### Tracing
+
+#### [Should] HTTP Requests contain Correlation-ID
+
+**Details:**
+* HTTP requests contain a `X-Correlation-ID` header with a correlation ID
+* If an incoming request contains a correlation ID (i.e. an `X-Correlation-ID` request header), this ID has
+  to be passed via `X-Correlation-ID` header to all downstream HTTP requests
+* If an incoming request does not contain a correlation ID (i.e. an `X-Correlation-ID` request header), a new
+  correlation ID has to be generated and passed via `X-Correlation-ID` header to all downstream HTTP requests
+* Correlation-IDs have to be treated as strings without a special format
+* Example request header: `X-Correlation-ID: 3858f62230ac3c915f300c664312c63f`
+* Example for generating a correlation ID in `Java`:
+    ```java
+    String correlationId = java.util.UUID.randomUUID().toString().replace("-", "");
+    ```
+* Example for generating a correlation ID in `NodeJS`:
+    ```js
+    import crypto = require('crypto');
+    const correlationId = crypto.randomBytes(16).toString('hex');
+    ```
+
+**Background:**
+* Correlation IDs can be used to correlate log entries (access logs as well as application logs) to easily
+  find all log entries belonging to an origin request. This helps to trace requests through the whole platform
+  and to find all application logs that were written in the context of this origin request.
+
 ### QA
 
 #### [Could] Service uses SonarCloud static code analysis
@@ -148,6 +177,8 @@ and additionally show some Best Practices which should be adopted by services of
   - [ ] (Optional) Service has a `.dockerignore` file to exclude unnecessary files from Docker Images ([ℹ](#must-service-is-dockerized))
   - [ ] Service is added to [`docker-compose.yml` of `digital-platform-overview`](https://github.com/ardalo/digital-platform-overview/blob/master/docker-compose.yml)
     ([ℹ](#must-service-is-added-to-docker-composeyml-of-digital-platform-overview))
+- Tracing
+  - [ ] HTTP Requests contain Correlation-ID ([ℹ](#should-http-requests-contain-correlation-id))
 - QA
   - [ ] (Optional) Service uses SonarCloud static code analysis ([ℹ](#could-service-uses-sonarcloud-static-code-analysis))
 
