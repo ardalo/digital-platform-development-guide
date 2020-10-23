@@ -132,14 +132,14 @@ Provides guidelines and FAQ for the development of the Ardalo Digital Platform.
 * Correlation-IDs have to be treated as strings without a special format
 * Example request header: `X-Correlation-ID: 3858f62230ac3c915f300c664312c63f`
 * Example for generating a correlation ID in `Java`:
-    ```java
-    String correlationId = java.util.UUID.randomUUID().toString().replace("-", "");
-    ```
+  ```java
+  String correlationId = java.util.UUID.randomUUID().toString().replace("-", "");
+  ```
 * Example for generating a correlation ID in `JavaScript`:
-    ```js
-    import crypto = require('crypto');
-    const correlationId = crypto.randomBytes(16).toString('hex');
-    ```
+  ```js
+  import crypto = require('crypto');
+  const correlationId = crypto.randomBytes(16).toString('hex');
+  ```
 
 **Background:**
 * Correlation IDs can be used to correlate log entries (access logs as well as application logs) to easily
@@ -205,6 +205,6 @@ and additionally show some Best Practices which should be adopted by services of
 1. Find current Gradle version: https://gradle.org/releases/
 2. Check release notes for breaking changes, new features etc.
 3. Run Gradle wrapper update command:
-    ```console
-    $ ./gradlew wrapper --gradle-version=<gradle version, e.g. 6.7> --distribution-type=all
-    ```
+   ```console
+   $ ./gradlew wrapper --gradle-version=<gradle version, e.g. 6.7> --distribution-type=all
+   ```
