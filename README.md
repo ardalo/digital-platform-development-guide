@@ -14,6 +14,7 @@ Provides guidelines and FAQ for the development of the Ardalo Digital Platform.
     * [\[Must\] Service is added to docker-compose.yml of digital-platform-overview](#must-service-is-added-to-docker-composeyml-of-digital-platform-overview)
   * [Tracing](#tracing)
     * [\[Should\] HTTP Requests contain Correlation-ID](#should-http-requests-contain-correlation-id)
+    * [\[Should\] Log messages contain Correlation-ID](#should-log-messages-contain-correlation-id)
   * [QA](#qa)
     * [\[Could\] Service uses SonarCloud static code analysis](#could-service-uses-sonarcloud-static-code-analysis)
 * [Service Implementation Checklist](#service-implementation-checklist)
@@ -134,11 +135,23 @@ Provides guidelines and FAQ for the development of the Ardalo Digital Platform.
     ```java
     String correlationId = java.util.UUID.randomUUID().toString().replace("-", "");
     ```
-* Example for generating a correlation ID in `NodeJS`:
+* Example for generating a correlation ID in `JavaScript`:
     ```js
     import crypto = require('crypto');
     const correlationId = crypto.randomBytes(16).toString('hex');
     ```
+
+**Background:**
+* Correlation IDs can be used to correlate log entries (access logs as well as application logs) to easily
+  find all log entries belonging to an origin request. This helps to trace requests through the whole platform
+  and to find all application logs that were written in the context of this origin request.
+
+#### [Should] Log messages contain Correlation-ID
+
+**Details:**
+* Log messages which belong to an incoming HTTP request contain the correlation ID of this request
+* The correlation ID can be read from request header `X-Correlation-ID` or must be self-generated in case
+  no correlation ID has been sent along the incoming request
 
 **Background:**
 * Correlation IDs can be used to correlate log entries (access logs as well as application logs) to easily
@@ -179,6 +192,7 @@ and additionally show some Best Practices which should be adopted by services of
     ([ℹ](#must-service-is-added-to-docker-composeyml-of-digital-platform-overview))
 - Tracing
   - [ ] HTTP Requests contain Correlation-ID ([ℹ](#should-http-requests-contain-correlation-id))
+  - [ ] Log messages contain Correlation-ID ([ℹ](#should-log-messages-contain-correlation-id))
 - QA
   - [ ] (Optional) Service uses SonarCloud static code analysis ([ℹ](#could-service-uses-sonarcloud-static-code-analysis))
 
