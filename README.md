@@ -29,12 +29,12 @@ Provides guidelines and FAQ for the development of the Ardalo Digital Platform.
 #### [Must] Service exposes Health Check Endpoints
 
 **Details:**
-* Service exposes an alive check endpoint
+* Service exposes a liveness health check endpoint
   * This endpoint indicates whether the service itself is running
   * Endpoint example: `/alive`
   * Returns HTTP Status Code `200` if the service is alive
   * If the service does not respond with HTTP Status Code `200`, it is considered dead and will be restarted
-* Service exposes a readiness check endpoint
+* Service exposes a readiness health check endpoint
   * This endpoint indicates whether the service is able to process requests
   * Endpoint example: `/ready`
   * Returns HTTP Status Code `200` if the service is ready
@@ -47,16 +47,16 @@ Provides guidelines and FAQ for the development of the Ardalo Digital Platform.
     ```
   * If the service does not respond with HTTP Status Code `200`, it will be removed from load balancing
     until ready again
-  * The endpoint must only check own dependencies, e.g. its own database. To prevent cascading errors,
-    no external dependencies will be checked
+  * The endpoint must only check own dependencies, e.g. its own database. To prevent cascading errors
+    and circular dependencies, no external dependencies must be checked
 
 **Background:**
 * Health Check Endpoints are essential for an automated infrastructure:
-  * If a service is not alive, i.e. does not respond with HTTP Status Code `200` to a `alive` request,
+  * If a service is not alive, i.e. does not respond with HTTP Status Code `200` to a liveness request,
     the service can be detected as dead and restarted automatically.
-  * If a service is not ready, i.e. does not respond with HTTP Status Code `200` to a `ready` request,
-    the service will be removed from load balancing and only added again once the `ready` endpoint
-    return HTTP Status Code `200`
+  * If a service is not ready, i.e. does not respond with HTTP Status Code `200` to a readiness request,
+    the service will be removed from load balancing and only added again once the readiness endpoint
+    returns HTTP Status Code `200`.
 
 #### [Must] Service exposes a Prometheus Metrics Endpoint
 
@@ -176,7 +176,7 @@ This checklist shall help to evaluate whether a service conforms to the [Service
 and additionally show some Best Practices which should be adopted by services of the Ardalo Digital Platform.
 
 - Monitoring
-  - [ ] Service exposes an alive health check endpoint ([ℹ](#must-service-exposes-health-check-endpoints))
+  - [ ] Service exposes a liveness health check endpoint ([ℹ](#must-service-exposes-health-check-endpoints))
   - [ ] Service exposes a readiness health check endpoint ([ℹ](#must-service-exposes-health-check-endpoints))
   - [ ] Service exposes an endpoint providing Prometheus style metrics ([ℹ](#must-service-exposes-a-prometheus-metrics-endpoint))
 - Documentation
