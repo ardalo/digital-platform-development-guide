@@ -202,8 +202,8 @@ and additionally show some Best Practices which should be adopted by services of
   - [ ] Service is added to [`docker-compose.yml` of `digital-platform-overview`](https://github.com/ardalo/digital-platform-overview/blob/master/docker-compose.yml)
     ([ℹ](#must-service-is-added-to-docker-composeyml-of-digital-platform-overview))
 - Tracing
-  - [ ] HTTP Requests contain Correlation-ID ([ℹ](#should-http-requests-contain-correlation-id))
-  - [ ] Log messages contain Correlation-ID ([ℹ](#should-log-messages-contain-correlation-id))
+  - [ ] HTTP Requests contain Correlation-ID ([ℹ](#must-http-requests-contain-correlation-id))
+  - [ ] Log messages contain Correlation-ID ([ℹ](#must-log-messages-contain-correlation-id))
 - QA
   - [ ] (Optional) Service uses SonarCloud static code analysis ([ℹ](#could-service-uses-sonarcloud-static-code-analysis))
 
