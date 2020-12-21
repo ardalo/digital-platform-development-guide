@@ -14,8 +14,8 @@ Provides guidelines and FAQ for the development of the Ardalo Digital Platform.
     * [\[Must\] Service is Dockerized](#must-service-is-dockerized)
     * [\[Must\] Service is added to docker-compose.yml of digital-platform-overview](#must-service-is-added-to-docker-composeyml-of-digital-platform-overview)
   * [Tracing](#tracing)
-    * [\[Should\] HTTP Requests contain Correlation-ID](#should-http-requests-contain-correlation-id)
-    * [\[Should\] Log messages contain Correlation-ID](#should-log-messages-contain-correlation-id)
+    * [\[Must\] HTTP Requests contain Correlation-ID](#must-http-requests-contain-correlation-id)
+    * [\[Must\] Log messages contain Correlation-ID](#must-log-messages-contain-correlation-id)
   * [QA](#qa)
     * [\[Could\] Service uses SonarCloud static code analysis](#could-service-uses-sonarcloud-static-code-analysis)
 * [Service Implementation Checklist](#service-implementation-checklist)
@@ -132,7 +132,7 @@ There are two types of rules:
 
 ### Tracing
 
-#### [Should] HTTP Requests contain Correlation-ID
+#### [Must] HTTP Requests contain Correlation-ID
 
 **Details:**
 * HTTP requests contain a `X-Correlation-ID` header with a correlation ID
@@ -157,7 +157,7 @@ There are two types of rules:
   find all log entries belonging to an origin request. This helps to trace requests through the whole platform
   and to find all application logs that were written in the context of this origin request.
 
-#### [Should] Log messages contain Correlation-ID
+#### [Must] Log messages contain Correlation-ID
 
 **Details:**
 * Log messages which belong to an incoming HTTP request contain the correlation ID of this request
