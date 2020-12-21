@@ -22,6 +22,16 @@ Provides guidelines and FAQ for the development of the Ardalo Digital Platform.
   * [Update Project Dependencies](#update-project-dependencies)
     * [Update Gradle Wrapper](#update-gradle-wrapper)
 
+## Guideline structure explained
+
+Each rule in the Development Guide follows the same structure. It consists of two parts:
+* _Details_: Contains in depth explanation of the rule
+* _Background_: Provides the answer to the question, why the rule exists
+
+There are two types of rules:
+* **\[Must\]**: These rules need to be satisfied except there is a very good reason not to do so
+* **\[Could\]**: These rules can be seen as best practices. It is recommended to comply with them, but it is up to you
+
 ## Service Implementation Guide
 
 ### Monitoring
