@@ -2,6 +2,7 @@
 Provides guidelines and FAQ for the development of the Ardalo Digital Platform.
 
 ## Table of Contents
+* [Guideline structure explained](#guideline-structure-explained)
 * [Service Implementation Guide](#service-implementation-guide)
   * [Monitoring](#monitoring)
     * [\[Must\] Service exposes Health Check Endpoints](#must-service-exposes-health-check-endpoints)
