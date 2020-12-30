@@ -14,8 +14,8 @@ Provides guidelines and FAQ for the development of the Ardalo Digital Platform.
     * [\[Must\] Service is Dockerized](#must-service-is-dockerized)
     * [\[Must\] Service is added to docker-compose.yml of digital-platform-overview](#must-service-is-added-to-docker-composeyml-of-digital-platform-overview)
   * [Tracing](#tracing)
-    * [\[Must\] HTTP Requests contain Correlation-ID](#must-http-requests-contain-correlation-id)
-    * [\[Must\] Log messages contain Correlation-ID](#must-log-messages-contain-correlation-id)
+    * [\[Must\] HTTP Requests contain Request-ID](#must-http-requests-contain-request-id)
+    * [\[Must\] Log messages contain Request-ID](#must-log-messages-contain-request-id)
   * [QA](#qa)
     * [\[Could\] Service uses SonarCloud static code analysis](#could-service-uses-sonarcloud-static-code-analysis)
 * [Service Implementation Checklist](#service-implementation-checklist)
@@ -132,42 +132,44 @@ There are two types of rules:
 
 ### Tracing
 
-#### [Must] HTTP Requests contain Correlation-ID
+#### [Must] HTTP Requests contain Request-ID
 
 **Details:**
-* HTTP requests contain a `X-Correlation-ID` header with a correlation ID
-* If an incoming request contains a correlation ID (i.e. an `X-Correlation-ID` request header), this ID has
-  to be passed via `X-Correlation-ID` header to all downstream HTTP requests
-* If an incoming request does not contain a correlation ID (i.e. an `X-Correlation-ID` request header), a new
-  correlation ID has to be generated and passed via `X-Correlation-ID` header to all downstream HTTP requests
-* Correlation-IDs have to be treated as strings without a special format
-* Example request header: `X-Correlation-ID: 3858f62230ac3c915f300c664312c63f`
-* Example for generating a correlation ID in `Java`:
+* HTTP requests contain a `X-Request-ID` header with a request ID
+* If an incoming request contains a request ID (i.e. an `X-Request-ID` request header), this ID has
+  to be passed via `X-Request-ID` header to all downstream HTTP requests
+* If an incoming request does not contain a request ID (i.e. an `X-Request-ID` request header), a new
+  request ID has to be generated and passed via `X-Request-ID` header to all downstream HTTP requests
+* Request-IDs have to be treated as strings without a special format
+* Example request header: `X-Request-ID: 3858f62230ac3c915f300c664312c63f`
+* Example for generating a request ID in `Java`:
   ```java
-  String correlationId = java.util.UUID.randomUUID().toString().replace("-", "");
+  String requestId = java.util.UUID.randomUUID().toString().replace("-", "");
   ```
-* Example for generating a correlation ID in `JavaScript`:
+* Example for generating a request ID in `JavaScript`:
   ```js
   import crypto = require('crypto');
-  const correlationId = crypto.randomBytes(16).toString('hex');
+  const requestId = crypto.randomBytes(16).toString('hex');
   ```
 
 **Background:**
-* Correlation IDs can be used to correlate log entries (access logs as well as application logs) to easily
+* Request IDs can be used to correlate log entries (access logs as well as application logs) to easily
   find all log entries belonging to an origin request. This helps to trace requests through the whole platform
   and to find all application logs that were written in the context of this origin request.
+* See [HTTP Request IDs on Heroku](https://devcenter.heroku.com/articles/http-request-id)
 
-#### [Must] Log messages contain Correlation-ID
+#### [Must] Log messages contain Request-ID
 
 **Details:**
-* Log messages which belong to an incoming HTTP request contain the correlation ID of this request
-* The correlation ID can be read from request header `X-Correlation-ID` or must be self-generated in case
-  no correlation ID has been sent along the incoming request
+* Log messages which belong to an incoming HTTP request contain the request ID of this request
+* The request ID can be read from request header `X-Request-ID` or must be self-generated in case
+  no request ID has been sent along the incoming request
 
 **Background:**
-* Correlation IDs can be used to correlate log entries (access logs as well as application logs) to easily
+* Request IDs can be used to correlate log entries (access logs as well as application logs) to easily
   find all log entries belonging to an origin request. This helps to trace requests through the whole platform
   and to find all application logs that were written in the context of this origin request.
+* See [HTTP Request IDs on Heroku](https://devcenter.heroku.com/articles/http-request-id)
 
 ### QA
 
@@ -202,8 +204,8 @@ and additionally show some Best Practices which should be adopted by services of
   - [ ] Service is added to [`docker-compose.yml` of `digital-platform-overview`](https://github.com/ardalo/digital-platform-overview/blob/master/docker-compose.yml)
     ([ℹ](#must-service-is-added-to-docker-composeyml-of-digital-platform-overview))
 - Tracing
-  - [ ] HTTP Requests contain Correlation-ID ([ℹ](#must-http-requests-contain-correlation-id))
-  - [ ] Log messages contain Correlation-ID ([ℹ](#must-log-messages-contain-correlation-id))
+  - [ ] HTTP Requests contain Request-ID ([ℹ](#must-http-requests-contain-request-id))
+  - [ ] Log messages contain Request-ID ([ℹ](#must-log-messages-contain-request-id))
 - QA
   - [ ] (Optional) Service uses SonarCloud static code analysis ([ℹ](#could-service-uses-sonarcloud-static-code-analysis))
 
