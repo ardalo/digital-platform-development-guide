@@ -42,7 +42,7 @@ There are two types of rules:
 #### [Must] Service is released under the MIT license
 
 **Details:**
-* Service contains a `LICENSE` file in the root directory containing the [MIT License](https://opensource.org/licenses/mit-license.php)
+* Service contains a `LICENSE` file in the root directory containing the [MIT License](https://opensource.org/licenses/MIT)
 * `LICENSE` file contents:
   ```text
   MIT License
