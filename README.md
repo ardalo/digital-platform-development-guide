@@ -6,6 +6,7 @@ Provides guidelines and FAQ for the development of the Ardalo Digital Platform.
 * [Service Implementation Guide](#service-implementation-guide)
   * [General](#general)
     * [\[Must\] Service is released under the MIT license](#must-service-is-released-under-the-mit-license)
+    * [\[Must\] Service is developed in English](#must-service-is-developed-in-english)
   * [Monitoring](#monitoring)
     * [\[Must\] Service exposes Health Check Endpoints](#must-service-exposes-health-check-endpoints)
     * [\[Must\] Service exposes a Prometheus Metrics Endpoint](#must-service-exposes-a-prometheus-metrics-endpoint)
@@ -70,6 +71,11 @@ There are two types of rules:
 
 **Background:**
 * Services of the Ardalo Digital Platform are developed and released as free software.
+
+#### [Must] Service is developed in English
+
+**Details:**
+* The English language is used for source code, documentation, database tables etc.
 
 ### Monitoring
 
