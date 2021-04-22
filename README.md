@@ -263,5 +263,5 @@ and additionally show some Best Practices which should be adopted by services of
 2. Check release notes for breaking changes, new features etc.
 3. Run Gradle wrapper update command:
    ```console
-   $ ./gradlew wrapper --gradle-version=<gradle version, e.g. 6.7> --distribution-type=all
+   $ ./gradlew wrapper --gradle-version=<gradle version, e.g. 7.0>
    ```
